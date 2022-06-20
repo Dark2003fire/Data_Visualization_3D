@@ -1,0 +1,129 @@
+from mpl_toolkits import mplot3d
+import numpy as np
+from pylab import*
+import  matplotlib.pyplot as plt
+
+#1)
+def f(x ,y):
+    return x*x+y*y
+
+x = np.linspace(-6,6,50)
+y = np.linspace(-6,6,50)
+X ,Y = np.meshgrid(x , y)
+Z = f(X , Y)
+ax = axes(projection='3d' )
+c = ax.contour3D(X ,Y , Z , 150 )
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('3D Parabola')
+plt.legend()
+plt.show()
+
+#2)
+def f(x ,y):
+    return x*np.exp(-x*x-y*y)
+
+a = np.linspace(-6,6,100)
+b = np.linspace(-6,6,100)
+X , Y = np.meshgrid(x ,y)
+c = f(X , Y )
+ax = axes(projection='3d')
+e = ax.contour3D(X , Y , c , 120)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('z = e^-x^2 - y^2')
+plt.legend()
+plt.show()
+
+#3)
+def f(x ,y):
+    return np.cos(abs(x)+abs(y))
+
+x = np.linspace(-1,1,50)
+y = np.linspace(-1,1,50)
+X ,Y = np.meshgrid(x , y)
+Z = f(X , Y)
+ax = axes(projection='3d' )
+c = ax.contour3D(X ,Y , Z , 200 )
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('z = cos(mod(x)+mod(y)) ')
+plt.legend()
+plt.show()
+
+#4)
+def f(x ,y):
+    return np.cos(x*x+y*y-0.5)-0.5
+
+
+x = np.linspace(-1,1,80)
+y = np.linspace(-1,1,80)
+X ,Y = np.meshgrid(x , y)
+Z = f(X , Y)
+ax = axes(projection='3d' )
+c = ax.contour3D(X ,Y , Z , 50)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('z = cos(x*x+y*y-0.5)-0.5 ')
+plt.legend()
+plt.show()
+
+
+#5)
+def f(x ,y):
+    return np.sin(x)+np.cos(y)
+
+
+x = np.linspace(-5,5,80)
+y = np.linspace(-5,5,80)
+X ,Y = np.meshgrid(x , y)
+Z = f(X , Y)
+ax = axes(projection='3d' )
+c = ax.contour3D(X ,Y , Z , 80)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('z = sin(x)+np.cos(y) ')
+plt.legend()
+plt.show()
+
+#6)
+
+#1)
+
+def f(x ,y):
+    return np.exp(x*x+y*y)
+
+
+x = np.linspace(0,2*pi,50)
+y = np.linspace(0,2*pi,50)
+X ,Y = np.meshgrid(x , y)
+Z = f(X , Y)
+ax = axes(projection='3d' )
+ax.plot_wireframe(X,Y , Z ,rstride = 2 ,cstride = 2)
+ax.plot_surface(X,Y ,Z)
+
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('z = exp(x*x+y*y)')
+plt.legend()
+plt.show()
+
+#2)
+def f(x ,y):
+    return np.exp(x*x-y*y)
+
+
+x = np.linspace(0,2*pi,50)
+y = np.linspace(0,2*pi,50)
+X ,Y = np.meshgrid(x , y)
+Z = f(X , Y)
+ax = axes(projection='3d' )
+ax.plot_wireframe(X,Y , Z ,rstride = 2 ,cstride = 2)
+ax.plot_surface(X ,Y , Z)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('z = exp(x*x+y*y)')
+plt.legend()
+plt.show()
+
+
